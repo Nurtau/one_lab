@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import styled, { ThemeProvider } from "styled-components";
+import { CreatePassword } from "./components/CreatePassword";
+import { GlobalStyles } from "./styles/GlobalStyles";
+import { createTheme } from "@mui/material/styles";
 
-function App() {
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#664d8fa6",
+      darker: "#053e85",
+    },
+  },
+  secondary: "#664d8fa6",
+});
+
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <GlobalStyles />
+        <AppWrapper>
+          <CreatePassword />
+        </AppWrapper>
+    </ThemeProvider>
   );
-}
+};
 
-export default App;
+const AppWrapper = styled("div")`
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
