@@ -21,6 +21,12 @@ export const StyledInput = ({
         size="small"
         color="primary"
         error={hasError}
+        InputLabelProps={{
+          style: {
+            color: "#664d8fa6",
+            marginTop: "5px",
+          },
+        }}
       />
       {hasError ? (
         <ErrorMessage>
@@ -35,7 +41,7 @@ export const StyledInput = ({
 
 const StyledTextField = styled(TextField)`
   & input:valid + fieldset {
-    border-color: #664d8fa6;
+    border-color: ${(props) => props.theme.secondary};
     border-radius: 10px;
   }
   & input:valid + fieldset::placeholder {

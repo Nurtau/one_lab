@@ -10,5 +10,3 @@ export const GlobalStyles = createGlobalStyle`
     font-weight: 400;
   }
 `;
-
-// #EE1D75
